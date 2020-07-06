@@ -2,3 +2,7 @@
 echo phpinfo();
 
 $one = 1;
+
+?>
+
+
