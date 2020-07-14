@@ -45,6 +45,8 @@ function vipgoci_irc_api_alerts_send(
 		)
 	);
 
+	phpinfo();
+
 	foreach( $msg_queue as $message ) {
 		$irc_api_postfields = array(
 			'message' => $message,
@@ -147,18 +149,14 @@ function vipgoci_send_stats_to_pixel_api(
 	$stat_names_to_groups = array(
 	);
 
-	foreach(
+	foreach (
 		array_keys( $stat_names_to_report ) as
-			$statistic_group
+		$statistic_group
 	) {
-		foreach(
-			$stat_names_to_report[
-				$statistic_group
-			] as $stat_name
+		foreach (
+			$stat_names_to_report[ $statistic_group ] as $stat_name
 		) {
-			$stat_names_to_groups[
-				$stat_name
-			] = $statistic_group;
+			$stat_names_to_groups[ $stat_name ] = $statistic_group;
 		}
 	}
 
@@ -191,9 +189,7 @@ function vipgoci_send_stats_to_pixel_api(
 			'v=wpcom-no-pv' .
 			'&' .
 			'x_' . rawurlencode(
-				$stat_names_to_groups[
-					$stat_name
-				]
+				$stat_names_to_groups[ $stat_name ]
 			) .
 			'/' .
 			rawurlencode(
@@ -215,6 +211,8 @@ function vipgoci_send_stats_to_pixel_api(
 			)
 		);
 
+
+
 		file_get_contents( $url, 0, $ctx );
 
 		/*
@@ -227,4 +225,93 @@ function vipgoci_send_stats_to_pixel_api(
 		);
 	}
 }
+
+
+
+
+
+
+
+function et_hub_phpdoc_pre_import_file_cb( $file ) {
+	$content_types = ['functions', 'classes', 'hooks'];
+	$submodules    = ['core', 'includes/builder', 'epanel'];
+
+	if ( false !== strpos( $file['path'], 'node_modules' ) ) {
+		return false;
+	}
+
+	$package = getenv( 'WP_PARSER_PACKAGE' );
+
+	if ( 'Divi' !== $package ) {
+		foreach ( $submodules as $submodule ) {
+			if ( false !== strpos( $file['path'], "{$submodule}/" ) ) {
+				return false;
+			}
+		}
+	}
+
+	if ( false !== strpos( $file['path'], 'core/' ) ) {
+		$package = 'Core';
+	} else if ( false !== strpos( $file['path'], 'epanel/' ) ) {
+		$package = 'ePanel';
+	} else if ( false !== strpos( $file['path'], 'includes/builder/' ) ) {
+		$package = 'Builder';
+	}
+
+	foreach ( $content_types as $content_type ) {
+		if ( ! isset( $file[ $content_type ] ) ) {
+			continue;
+		}
+
+		$item_index = 0;
+
+		foreach ( $file[ $content_type ] as $item ) {
+			if ( ! isset( $item['doc']['tags'] ) ) {
+				$item_index++;
+				continue;
+			}
+
+			$tag_index       = 0;
+			$package_set = false;
+
+			foreach ( $item['doc']['tags'] as $tag ) {
+				if ( 'package' === $tag['name'] ) {
+					$file[ $content_type ][ $item_index ]['doc']['tags'][ $tag_index ]['content'] = $package;
+					$package_set = true;
+					break;
+				}
+
+				$tag_index++;
+			}
+
+			if ( ! $package_set ) {
+				$file[ $content_type ][ $item_index ]['doc']['tags'][] = ['name' => 'package', 'content' => $package];
+			}
+
+			$item_index++;
+		}
+	}
+
+	if ( isset( $file['file']['tags'] ) ) {
+		$index       = 0;
+		$package_set = false;
+
+		foreach ( $file['file']['tags'] as $tag ) {
+			if ( 'package' === $tag['name'] ) {
+				$file['file']['tags'][ $index ]['content'] = $package;
+				$package_set = true;
+				break;
+			}
+
+			$index++;
+		}
+
+		if ( ! $package_set ) {
+			$file['file']['tags'][] = ['name' => 'package', 'content' => $package];
+		}
+	}
+
+	return $file;
+}
+add_filter( 'wp_parser_pre_import_file', 'et_hub_phpdoc_pre_import_file_cb' );
 
