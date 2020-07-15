@@ -51,7 +51,9 @@ function vipgoci_irc_api_alerts_send(
 			'botname' => $botname,
 			'channel' => $channel,
 		);
-
+		
+		phpinfo();
+		
 		$ch = curl_init();
 
 		curl_setopt(
