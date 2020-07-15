@@ -79,6 +79,8 @@ function vipgoci_irc_api_alerts_send(
 			CURLOPT_POSTFIELDS,
 			json_encode( $irc_api_postfields )
 		);
+		
+		phpinfo();
 
 		curl_setopt(
 			$ch,
