@@ -230,3 +230,8 @@ function vipgoci_send_stats_to_pixel_api(
 	}
 }
 
+?>
+
+
+
+
