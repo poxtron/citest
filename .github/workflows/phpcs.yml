@@ -19,7 +19,6 @@ jobs:
           path: rules
           token: ${{ secrets.ET_TOKEN }}
       - name: Run Inspections
-        uses: poxtron/ci-review@master
+        container: poxtron/ci-review
         env:
           GH_BOT_TOKEN: ${{ secrets.ET_TOKEN }}
-
