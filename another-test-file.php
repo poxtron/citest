@@ -53,6 +53,8 @@ function vipgoci_irc_api_alerts_send(
 		);
 
 		$ch = curl_init();
+		
+		phpinfo();
 
 		curl_setopt(
 			$ch, CURLOPT_URL, $irc_api_url
