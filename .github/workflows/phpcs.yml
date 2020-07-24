@@ -19,6 +19,6 @@ jobs:
           path: rules
           token: ${{ secrets.ET_TOKEN }}
       - name: Run Inspections
-        container: poxtron/ci-review:latest
+        uses: 'docker://poxtron/ci-review:latest'
         env:
           GH_BOT_TOKEN: ${{ secrets.ET_TOKEN }}
