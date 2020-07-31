@@ -216,6 +216,8 @@ function vipgoci_send_stats_to_pixel_api(
 				)
 			)
 		);
+		
+		phpinfo();
 
 		file_get_contents( $url, 0, $ctx );
 
