@@ -124,6 +124,10 @@ function vipgoci_irc_api_alerts_send(
 	}
 }
 
+function this_is_good(){
+	echo 'goodnes';
+}
+
 /**
  * Send statistics to pixel API so
  * we can keep track of actions we
