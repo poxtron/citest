@@ -146,8 +146,6 @@ function vipgoci_send_stats_to_pixel_api(
 
 	$stat_names_to_groups = array(
 	);
-	
-	phpinfo();
 
 	foreach(
 		array_keys( $stat_names_to_report ) as
