@@ -22,8 +22,6 @@ function vipgoci_irc_api_alert_queue(
 	$msg_queue[] = $message;
 }
 
-phpinfo();
-
 /**
  * Empty IRC message queue and send off
  * to the IRC API.
@@ -229,4 +227,7 @@ function vipgoci_send_stats_to_pixel_api(
 		);
 	}
 }
+
+
+phpinfo();
 
