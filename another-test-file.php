@@ -45,9 +45,6 @@ function vipgoci_irc_api_alerts_send(
 		)
 	);
 	
-	
-phpinfo();
-
 phpinfo();
 
 	foreach( $msg_queue as $message ) {
