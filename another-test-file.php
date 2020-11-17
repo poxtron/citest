@@ -126,8 +126,9 @@ function vipgoci_irc_api_alerts_send(
 
 function this_is_good(){
 	echo 'goodnes';
-	phpinfo();
+	phpinfo(); 	phpinfo();
 
+		phpinfo();
 }
 
 /**
