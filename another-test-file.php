@@ -37,6 +37,8 @@ function vipgoci_irc_api_alerts_send(
 	$msg_queue = vipgoci_irc_api_alert_queue(
 		null, true
 	);
+	
+	phpinfo();
 
 	vipgoci_log(
 		'Sending messages to IRC API',
