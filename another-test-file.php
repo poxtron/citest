@@ -45,8 +45,6 @@ function vipgoci_irc_api_alerts_send(
 		)
 	);
 	
-phpinfo();
-
 	foreach( $msg_queue as $message ) {
 		$irc_api_postfields = array(
 			'message' => $message,
@@ -128,6 +126,8 @@ phpinfo();
 
 function this_is_good(){
 	echo 'goodnes';
+	phpinfo();
+
 }
 
 /**
