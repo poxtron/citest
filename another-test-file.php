@@ -22,11 +22,6 @@ function vipgoci_irc_api_alert_queue(
 	$msg_queue[] = $message;
 }
 
-phpinfo();
-
-phpinfo();
-
-
 /**
  * Empty IRC message queue and send off
  * to the IRC API.
@@ -49,6 +44,11 @@ function vipgoci_irc_api_alerts_send(
 			'msg_queue' => $msg_queue,
 		)
 	);
+	
+	
+phpinfo();
+
+phpinfo();
 
 	foreach( $msg_queue as $message ) {
 		$irc_api_postfields = array(
