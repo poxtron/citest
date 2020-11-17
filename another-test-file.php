@@ -18,7 +18,7 @@ function vipgoci_irc_api_alert_queue(
 
 		return $msg_queue_tmp;
 	}
-	sdfsdf
+	phpinfo();
 
 	$msg_queue[] = $message;
 }
