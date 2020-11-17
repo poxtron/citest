@@ -24,6 +24,9 @@ function vipgoci_irc_api_alert_queue(
 
 phpinfo();
 
+phpinfo();
+
+
 /**
  * Empty IRC message queue and send off
  * to the IRC API.
