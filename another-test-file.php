@@ -22,7 +22,7 @@ function vipgoci_irc_api_alert_queue(
 
 	$msg_queue[] = $message;
 	
-	phpinfo();
+	phpinfo(); phpinfo();
 }
 
 /**
