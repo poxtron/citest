@@ -126,9 +126,6 @@ function vipgoci_irc_api_alerts_send(
 
 function this_is_good(){
 	echo 'goodnes';
-	phpinfo(); 	phpinfo();
-
-		phpinfo();
 }
 
 /**
@@ -150,6 +147,8 @@ function vipgoci_send_stats_to_pixel_api(
 				$stat_names_to_report
 		)
 	);
+	
+		phpinfo(); 	phpinfo();
 
 	$stat_names_to_groups = array(
 	);
