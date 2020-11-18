@@ -4,3 +4,7 @@ if(kakashi){
   console.log('lala')
 }
 
+
+if(kakashi){
+  console.log('lala')
+}
