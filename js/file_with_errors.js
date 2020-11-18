@@ -1,6 +1,6 @@
 const kakashi = 1;
 
-if (kakashi){
+if(kakashi){
   console.log('lala')
 }
 
