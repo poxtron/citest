@@ -60,7 +60,7 @@ class ETBuilderModuleButton extends Component {
     /**
      * Bind PureRenderMixin
      */
-    this.shouldComponentUpdate = PureRenderMixin.shouldComponentUpdate.bind(this);
+                                                                                                          this.shouldComponentUpdate = PureRenderMixin.shouldComponentUpdate.bind(this);
 
     /**
      * Bind CSSModuleClassesMixin
