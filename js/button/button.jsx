@@ -76,7 +76,7 @@ class ETBuilderModuleButton extends Component {
     this.moduleClassNameArray = moduleClassNameArray.bind(this);
     this.moduleClassName = moduleClassName.bind(this);
     this.moduleID = moduleID.bind(this);
-    this.globalSavingClass = globalSavingClass.bind(this);
+                  this.globalSavingClass = globalSavingClass.bind(this);
     this.globalModuleClass = globalModuleClass.bind(this);
     this.linkRel = linkRel.bind(this);
 
